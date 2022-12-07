@@ -1,13 +1,12 @@
-import './App.css';
-import Login from './Pages/Login'
-import Template from './Pages/Template'
-
-
+import React from "react";
+import "./App.css";
+import Login from "./components/Login";
 
 function App() {
   return (
-    <Template />
-
+    <div>
+      <Login />
+    </div>
   );
 }
 
