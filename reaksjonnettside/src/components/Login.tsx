@@ -1,22 +1,46 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "../features/user";
 
 export default function Login() {
   const dispatch = useDispatch();
-  const user = useSelector((state: any) => state.user.value);
+
+  function handleLogin() {
+    let userHTML = document.getElementById("username") as HTMLInputElement;
+    let userHTMLvalue = userHTML.value;
+
+    let passwordHTML = document.getElementById("password") as HTMLInputElement;
+    let passwordHTMLvalue = passwordHTML.value;
+
+    dispatch(login({ name: userHTMLvalue, Passord: passwordHTMLvalue }));
+  }
+
   return (
     <>
       <h1>Skriv inn informasjon</h1>
-      <p>Navn: {user.name}</p>
-      <p>Passord: {user.Passord}</p>
-      <button
-        onClick={() => {
-          dispatch(login({ name: "Jaodar", Passord: "ahha" }));
-        }}
-      >
-        Trykk her
-      </button>
+      <form>
+        <label>
+          Brukernavn:
+          <input name="username" id="username"></input>
+        </label>
+        <br />
+        <br />
+        <label>
+          Passord:
+          <input type="password" name="password" id="password"></input>
+        </label>
+        <br />
+        <br />
+        <label>
+          <input
+            type="button"
+            onClick={handleLogin}
+            name="loginSubmit"
+            id="loginSubmit"
+            value="Logg inn"
+          ></input>
+        </label>
+      </form>
     </>
   );
 }
