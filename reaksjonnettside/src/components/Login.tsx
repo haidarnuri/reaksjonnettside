@@ -1,9 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../features/user";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   function handleLogin() {
     let userHTML = document.getElementById("username") as HTMLInputElement;
@@ -13,6 +15,7 @@ export default function Login() {
     let passwordHTMLvalue = passwordHTML.value;
 
     dispatch(login({ name: userHTMLvalue, Passord: passwordHTMLvalue }));
+    navigate("/myprofile");
   }
 
   return (
