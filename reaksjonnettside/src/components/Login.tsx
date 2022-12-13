@@ -7,12 +7,17 @@ export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  function handleLogin() {
-    let userHTML = document.getElementById("username") as HTMLInputElement;
-    let userHTMLvalue = userHTML.value;
+  let userHTML: any,
+    userHTMLvalue: any,
+    passwordHTML: any,
+    passwordHTMLvalue: any;
 
-    let passwordHTML = document.getElementById("password") as HTMLInputElement;
-    let passwordHTMLvalue = passwordHTML.value;
+  function handleLogin() {
+    userHTML = document.getElementById("username") as HTMLInputElement;
+    userHTMLvalue = userHTML.value;
+
+    passwordHTML = document.getElementById("password") as HTMLInputElement;
+    passwordHTMLvalue = passwordHTML.value;
 
     dispatch(login({ name: userHTMLvalue, Passord: passwordHTMLvalue }));
     navigate("/myprofile");
