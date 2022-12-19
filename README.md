@@ -1,12 +1,19 @@
-# reaksjonnettside
+# Description and packages needed in this project
 
-En nettside med programmert i react med typescript. Bruker Redux toolkit(vet at det er overkill, men kun for læringens skyld).
+This is a webpage created in React. This project is divided in frontend and backend
 
-Må kjøre følgende:
+Packages needed for the backend:
 
-- npm install -g create-react-app
-- npm install -S react-router-dom
+npm install express (express is a Node web framework)
+npm install mysql (To access a MySQL database with Node.js, you need a MySQL driver.)
+npm install express mysql nodemon (automatically restart your server when changes has been done)
+npm i cors (manages cross-origin requests)
 
-Må bruke følgende for å starte programmet
+Packages needed for the frontend:
+
+npm i react-router-dom
+npm i axios
+
+To start the server both frontend and backend:
 
 - npm start
