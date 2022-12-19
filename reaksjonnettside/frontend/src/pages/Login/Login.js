@@ -1,15 +1,25 @@
 import React, { useState } from "react";
 
 export default function Login() {
-  const [user, setUser] = useState("");
+  /*
+  [user, setUser] = useState();
+
+  */
+
+  function changeState() {
+    console.log(document.getElementById("inputUserName").value);
+    console.log(document.getElementById("inputPassword").value);
+  }
 
   return (
     <div className="formsection">
       <label>Username:</label>
-      <input type="text" placeholder="skriv brukernavn" />
+      <input id="inputUserName" type="text" placeholder="skriv brukernavn" />
 
-      <label>Passord: {user}</label>
-      <input type="text" placeholder="skriv passord" />
+      <label>Passord:</label>
+      <input id="inputPassword" type="text" placeholder="skriv passord" />
+
+      <input type="submit" value="Log inn" onClick={changeState} />
     </div>
   );
 }
