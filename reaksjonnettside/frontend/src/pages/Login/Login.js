@@ -5,10 +5,9 @@ export default function Login() {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
 
-  function changeState() {
-    console.log(user);
+  function addToDBAndLogin() {
     axios
-      .post("http://localhost:8800/create", {
+      .post("http://localhost:8800/createuser", {
         user: user,
         pass: pass,
       })
@@ -33,7 +32,7 @@ export default function Login() {
         onChange={(e) => setPass(e.target.value)}
       />
 
-      <input type="submit" value="Log inn" onClick={changeState} />
+      <input type="submit" value="Log inn" onClick={addToDBAndLogin} />
     </div>
   );
 }

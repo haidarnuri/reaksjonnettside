@@ -34,22 +34,19 @@ const db = mysql.createConnection({
   database: "reactiondb",
 });
 
-app.post("/create", (req, res) => {
-  console.log(req.body);
+app.post("/createuser", (req, res) => {
   const user = req.body.user;
   const pass = req.body.pass;
 
   db.query(
     "INSERT INTO `reactiondb`.`userinfo` (`username`, `password`) VALUES (?,?);",
     [user, pass],
-    (err, result) => {
+    (err, res) => {
       if (err) {
         console.log(err);
       } else {
-        res.send("values inserted");
+        console.log("success");
       }
     }
   );
 });
-
-//INSERT INTO `reactiondb`.`userinfo` (`id`, `username`, `password`) VALUES ('1', 'haidar', 'pass');
