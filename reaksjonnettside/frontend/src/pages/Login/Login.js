@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+//import axios from "axios";
 
 export default function Login() {
-  /*
-  [user, setUser] = useState();
-
-  */
+  const [user, setUser] = useState("");
+  const [pass, setPass] = useState("");
 
   function changeState() {
-    console.log(document.getElementById("inputUserName").value);
-    console.log(document.getElementById("inputPassword").value);
+    console.log(user);
+    console.log(pass);
   }
+
+  //Need this to update states immidiatly
+  useEffect(() => {
+    setInterval(() => {
+      setUser(document.getElementById("inputUserName").value);
+      setPass(document.getElementById("inputPassword").value);
+    }, 1000);
+  });
 
   return (
     <div className="formsection">
