@@ -10,21 +10,23 @@ export default function Login() {
     console.log(pass);
   }
 
-  //Need this to update states immidiatly
-  useEffect(() => {
-    setInterval(() => {
-      setUser(document.getElementById("inputUserName").value);
-      setPass(document.getElementById("inputPassword").value);
-    }, 1000);
-  });
-
   return (
     <div className="formsection">
       <label>Username:</label>
-      <input id="inputUserName" type="text" placeholder="skriv brukernavn" />
+      <input
+        id="inputUserName"
+        type="text"
+        placeholder="skriv brukernavn"
+        onChange={(e) => setUser(e.target.value)}
+      />
 
       <label>Passord:</label>
-      <input id="inputPassword" type="text" placeholder="skriv passord" />
+      <input
+        id="inputPassword"
+        type="text"
+        placeholder="skriv passord"
+        onChange={(e) => setPass(e.target.value)}
+      />
 
       <input type="submit" value="Log inn" onClick={changeState} />
     </div>
