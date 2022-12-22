@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-//import axios from "axios";
+import React, { useState } from "react";
+import axios from "axios";
 
 export default function Login() {
   const [user, setUser] = useState("");
@@ -7,7 +7,12 @@ export default function Login() {
 
   function changeState() {
     console.log(user);
-    console.log(pass);
+    axios
+      .post("http://localhost:8800/create", {
+        user: user,
+        pass: pass,
+      })
+      .then(() => console.log("success!"));
   }
 
   return (

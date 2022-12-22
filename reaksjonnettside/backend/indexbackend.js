@@ -1,7 +1,10 @@
 import express from "express";
 import mysql from "mysql";
+import cors from "cors";
 
 const app = express();
+app.use(cors());
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.json("Halla! Dette er backend");
@@ -29,6 +32,24 @@ const db = mysql.createConnection({
   user: "root",
   password: "",
   database: "reactiondb",
+});
+
+app.post("/create", (req, res) => {
+  console.log(req.body);
+  const user = req.body.user;
+  const pass = req.body.pass;
+
+  db.query(
+    "INSERT INTO `reactiondb`.`userinfo` (`username`, `password`) VALUES (?,?);",
+    [user, pass],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("values inserted");
+      }
+    }
+  );
 });
 
 //INSERT INTO `reactiondb`.`userinfo` (`id`, `username`, `password`) VALUES ('1', 'haidar', 'pass');
