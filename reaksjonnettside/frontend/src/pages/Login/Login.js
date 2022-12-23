@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
+  const navigate = useNavigate();
 
   function addToDBAndLogin() {
     axios
@@ -12,6 +14,7 @@ export default function Login() {
         pass: pass,
       })
       .then(() => console.log("success!"));
+    navigate("/reactionsite");
   }
 
   return (

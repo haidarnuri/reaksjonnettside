@@ -1,3 +1,8 @@
+body {
+  background-color: gray;
+}
+
+/*Style of login screen*/
 .formsection {
   background-color: lightgrey;
   display: flex;
@@ -9,4 +14,30 @@
 
 input {
   width: 200px;
+}
+
+/*Style of reaction images*/
+.reactionImagesWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.reactionImages img {
+  width: 200px;
+  height: 200px;
+}
+
+.reactionImages p {
+  margin: auto;
+  margin-left: 40%;
+  margin-right: 30%;
+}
+
+/*Wrapper around header reaction page*/
+.headerWrapper {
+  display: flex;
+  align-content: center;
+  flex-flow: column wrap;
+  margin-bottom: 30px;
 }
