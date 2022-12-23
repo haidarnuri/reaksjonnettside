@@ -17,3 +17,10 @@ npm i axios
 To start the server both frontend and backend:
 
 - npm start
+
+TIPS mysql Workbench:
+If you want to reset your root password, just type following in workbench
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '(YOUR PASSWORD. CAN ALSO KEEP EMPTY)';
+
+flush privileges;
